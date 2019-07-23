@@ -1,55 +1,74 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.author }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
 title: Development Note
-author: innoceive
-email: innoceive@gmail.com, merlin@triple-corp.com
-description: > # this means to ignore newlines until "show_exerpts:"
+author: Jeonghooon Park
+description: Minimal, responsive Jekyll theme for hackers.
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: "https://innoceive.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+lang: ko
+timezone: UTC
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - Rakefile
+  - README.md
+  - LICENSE.txt
+  - CHANGELOG.md
+  - jekyll-whiteglass.gemspec
+  - screenshot.png
+  - vendor
 
-show_excerpts: true # set to true to show excerpts on the homepage
+# Social media
+twitter_username:
+twitter_image:
+facebook_app_id:
+facebook_image:
+google_analytics:
+comments: false
 
-# Minima date format
-# refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
-sass:
-  sass_dir: _sass
-plainwhite:
-  name: Jeonghoon Park
-  tagline: Software Engineer
-  date_format: "%b %-d, %Y"
-  sitemap: false # set to true to generate sitemap.xml content
-
-  # generate social links in footer
-  social_links:
-    github: innoceive
-#    linkedIn: in/thelehhman
-    rss: rss
-    # dribbble: jekyll
-    # facebook: jekyll
-    # flickr:   jekyll
-     instagram: jeonghoon__park
-    # linkedin: jekyll
-    # pinterest: jekyll
-    # youtube: jekyll
-    # youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g
-    # youtube_channel_name: CloudCannon
-    # telegram: jekyll
-    # googleplus: +jekyll
-    # microdotblog: jekyll
-
-    # Mastodon instances
-    # mastodon:
-    # - username: jekyll
-    #   instance: example.com
-    # - username: jekyll2
-    #   instance: example.com
-
-# If you want to link only specific pages in your header, uncomment
-# this and add the path to the pages in order as they should show up
-#header_pages:
-# - about.md
+# Plugins
+plugins:
+  - jekyll-archives
+  - jekyll-paginate
+  - jekyll-sitemap
 
 # Build settings
-theme: plainwhite
+markdown: kramdown
+excerpt_separator: "<!-- more -->"
 
-plugins:
-  - jekyll-seo-tag
-#  - jekyll-feed
+# Outputting
+permalink: /:year/:month/:day/:title/
+paginate_path: /posts/:num/
+paginate: 5
 
-remote_theme: thelehhman/plainwhite-jekyll
+# Markdown settings
+kramdown:
+  auto_ids: false
+  enable_coderay: false
+  entity_output: as_char
+  footnote_nr: 1
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  toc_levels: 1..6
+
+# jekyll-archives
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layout: category_archives
+  permalinks:
+    category: /categories/:name/
+    tag: /tags/:name/
