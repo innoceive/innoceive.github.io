@@ -23,6 +23,7 @@ github_username:  innoceive
 
 # Build settings
 markdown: kramdown
+remote_theme : thelehhman/plainwhite-jekyll
 theme: plainwhite
 plugins:
   - jekyll-feed
