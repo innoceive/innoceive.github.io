@@ -12,30 +12,23 @@ JPA는 ORM이기 때문에 RDB를 관리하는데 있어서 양방향 참조를 
 
 예를 들어 다음과 같다.
 
-{% highlight java %}
-
+```java
 public class Article { 
     @Id private long id;
-    
     // ...
-     
     @OneToMany(mappedBy = "article", fetch = FetchType.LAZY)
     private List comments;
-     
 } 
 
 public class Comment {
     @Id private long id;
-    
     // ...
-     
     @ManyToOne(fetch = FetchType.LAZY) 
     @JoinColum(name = "article_id") 
     @LazyToOne(value = LazyToOneOption.NO_PROXY) 
     private Article article;
 }
-
-{% endhighlight %}
+```
 
 위와 같은 형태로 글(Article)은 다수의 댓글(Comment)객체를 갖고 있고 댓글의 경우 그 반대이다. RDB의 특성상 이 관계의 참조의 키가 되는 article_id는 comment 테이블이 갖고 있는 형태이나 ORM의 특성상 이러한 관계를 양쪽 클래스 모두에 정의하게 된다.
 
